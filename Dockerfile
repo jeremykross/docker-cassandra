@@ -26,12 +26,10 @@ WORKDIR /app
 ADD . /app
 
 # install dependencies
-RUN rm -rf node_modules
 RUN npm install
 
-# remove .git directory
-RUN rm -rf .git
-
+# expose ports
 EXPOSE 7000 7001 7199 9042 9160
 
+# run cassandra
 CMD node cassandra.js
